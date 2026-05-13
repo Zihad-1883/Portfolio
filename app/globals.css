@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #020205;
+  --surface: rgba(5, 5, 10, 0.4);
+  --surface-raised: rgba(15, 15, 25, 0.6);
+  --border: rgba(255, 255, 255, 0.04);
+  --border-active: rgba(255, 255, 255, 0.12);
+  --text-primary: #F8FAFC;
+  --text-muted: #475569;
+  --accent: #E2E8F0;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-raised: var(--surface-raised);
+  --color-border-dim: var(--border);
+  --color-border-active: var(--border-active);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  
+  --font-syne: var(--font-syne);
+  --font-mono: var(--font-mono);
+  --font-dm: var(--font-dm-mono);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+  cursor: none; /* Custom cinematic cursor */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-syne);
+  letter-spacing: -0.04em;
+}
+
+/* Glassmorphism — Cinematic */
+.glass-card {
+  background: rgba(10, 10, 20, 0.3);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--border);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+
+.glass-card:hover {
+  background: rgba(15, 15, 30, 0.5);
+  border-color: var(--border-active);
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+}
+
+/* Custom Utilities — Cinematic */
+.white-glow {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05), 0 0 60px rgba(148, 163, 184, 0.15);
+}
+
+.glow-text {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2), 0 0 30px rgba(148, 163, 184, 0.1);
+  letter-spacing: -0.05em;
+}
+
+.section-label {
+  font-family: var(--font-dm);
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: #334155;
+  opacity: 0.8;
+}
+
+/* Atmospheric Grain */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* Multi-layered Starfield */
+.starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #020205;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 0.6; transform: scale(1); }
+}
+
+/* Nebula Effects */
+.nebula {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 80% 20%, rgba(30, 41, 59, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 20% 80%, rgba(55, 48, 163, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.2) 0%, transparent 60%);
+  filter: blur(80px);
+  animation: drift 30s infinite alternate ease-in-out;
+}
+
+@keyframes drift {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1.1) rotate(5deg); }
+}
+
+/* Custom Nav Dot */
+.nav-dot {
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.active .nav-dot {
+  opacity: 1;
+  width: 8px;
+  left: -14px;
+}
