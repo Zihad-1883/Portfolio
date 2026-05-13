@@ -6,13 +6,13 @@ const projects = [
   {
     title: "SkillSphere",
     url: "https://zihad-assignment-8.vercel.app/",
-    tags: ["React", "Firebase", "Tailwind"],
-    desc: "A high-performance assignment management platform featuring real-time updates and secure authentication.",
+    tags: ["Next Js", "Better Auth", "Tailwind"],
+    desc: "A high-performance course selling platform featuring real-time updates and secure authentication.",
   },
   {
     title: "English Janala",
     url: "https://zihad-1883.github.io/Project-English-Janala/",
-    tags: ["HTML", "Vanilla CSS", "JS"],
+    tags: ["HTML", "Tailwind", "JS"],
     desc: "An immersive educational hub designed to simplify English learning through interactive modules.",
   },
   {
@@ -24,13 +24,13 @@ const projects = [
   {
     title: "Keen Keeper",
     url: "https://keen-keeper-7.netlify.app",
-    tags: ["MERN Stack", "Auth", "CRUD"],
+    tags: ["React", "Tailwind", "Routing"],
     desc: "A productivity powerhouse that bridges the gap between chaotic schedules and meaningful progress.",
   },
   {
     title: "Dragon News",
     url: "https://project-dragon-news.vercel.app/category/01",
-    tags: ["React", "Rest API", "Dynamic"],
+    tags: ["Next Js", "API", "Dynamic"],
     desc: "A news aggregation portal delivering real-time world events with a focus on editorial typography.",
   },
   {
@@ -100,7 +100,7 @@ export default function Portfolio() {
             <div className="p-10 flex flex-col flex-grow relative z-30 bg-black/10 backdrop-blur-xl">
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tags.map((tag, j) => (
-                  <span key={j} className="text-[9px] font-mono border border-white/5 px-3 py-1 rounded-full uppercase tracking-[0.3em] text-text-muted bg-white/[0.01]">
+                  <span key={j} className="text-[10px] font-mono border border-white/5 px-3 py-1 rounded-full uppercase tracking-[0.3em] text-text-muted group-hover:text-text-primary transition-colors duration-1000 opacity-60 group-hover:opacity-100">
                     {tag}
                   </span>
                 ))}

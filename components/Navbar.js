@@ -35,7 +35,11 @@ export default function Navbar() {
 
   const scrollTo = (id) => {
     const element = document.getElementById(id);
-    if (element) {
+    if (!element) return;
+    // Use Lenis if available, fall back to native
+    if (window.__lenis) {
+      window.__lenis.scrollTo(element, { offset: 0, duration: 1.6 });
+    } else {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };

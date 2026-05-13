@@ -64,7 +64,7 @@ export default function Hero() {
 
       <div className="text-center max-w-4xl z-10">
         <motion.p
-          className="hero-reveal font-mono font-semibold text-[10px] uppercase tracking-[1em] text-text-muted mb-8"
+          className="hero-reveal font-mono font-bold text-[12px] uppercase tracking-[1em] text-text-muted mb-8"
         >
           {emotionalStatement}
         </motion.p>
@@ -93,7 +93,7 @@ export default function Hero() {
             href="https://github.com/Zihad-1883"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 glass-card rounded-full flex items-center justify-center text-xl hover:text-white transition-all duration-700"
+            className="w-12 h-12 glass-card rounded-full flex items-center justify-center text-xl hover:text-white transition-all duration-700 group-hover:text-gray-100 transition duration-700 white-glow"
             aria-label="GitHub"
           >
             <FiGithub />
@@ -102,7 +102,7 @@ export default function Hero() {
             href="https://www.linkedin.com/in/mizbaur-rahman-zihad/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 glass-card rounded-full flex items-center justify-center text-xl hover:text-white transition-all duration-700"
+            className="w-12 h-12 glass-card rounded-full flex items-center justify-center text-xl hover:text-white transition-all duration-700 group-hover:text-gray-100 transition duration-700 white-glow"
             aria-label="LinkedIn"
           >
             <FiLinkedin />
@@ -110,7 +110,7 @@ export default function Hero() {
           <div className="w-[1px] h-6 bg-border mx-2" />
           <button
             onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-            className="px-10 py-4 glass-card rounded-full font-syne font-bold uppercase tracking-[0.3em] text-[9px] hover:bg-white/10"
+            className="px-10 py-4 glass-card rounded-full font-syne font-extrabold uppercase tracking-[0.3em] text-[12px] hover:bg-white/10"
           >
             Enter The Void
           </button>

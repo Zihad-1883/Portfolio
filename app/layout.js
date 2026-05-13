@@ -27,19 +27,22 @@ import Navbar from "@/components/Navbar";
 import CustomCursor from "@/components/CustomCursor";
 import StarField from "@/components/StarField";
 import ClientWrapper from "@/components/ClientWrapper";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body
         className={`${syne.variable} ${dmMono.variable} ${geistMono.variable} antialiased bg-bg text-text-primary selection:bg-white selection:text-black grain relative`}
       >
-        <ClientWrapper>
-          <StarField />
-          <CustomCursor />
-          <Navbar />
-          {children}
-        </ClientWrapper>
+        <SmoothScrollProvider>
+          <ClientWrapper>
+            <StarField />
+            <CustomCursor />
+            <Navbar />
+            {children}
+          </ClientWrapper>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
