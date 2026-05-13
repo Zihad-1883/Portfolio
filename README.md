@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 Mizbaur Rahman Zihad — Personal Portfolio
 
-## Getting Started
+<div align="center">
+  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+</div>
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🔗 Live Site
+🌐 **[https://portfolio-one-eta-y6gdjq846m.vercel.app/](https://portfolio-one-eta-y6gdjq846m.vercel.app/)**
+
+---
+
+## 📖 Overview
+A modern, high-performance **personal portfolio website** for Mizbaur Rahman Zihad — Full-Stack Developer and Mathematics student at SUST. The site features smooth animations, a space-themed loading screen, and a clean sectioned layout to showcase skills, projects, and education.
+
+---
+
+## ✨ Main Features
+- 🚀 Space-themed animated loading/intro screen
+- 🧭 Smooth scroll navigation (Home, About, Skills, Education, Projects, Contact)
+- 👨‍💻 About Me section with personal story and interests
+- 🛠️ Skills section with tech stack icons
+- 🎓 Education timeline (SUST, HSC, SSC)
+- 💼 Featured projects showcase with live demo links
+- 📬 Contact form with email integration
+- 📱 Fully responsive across all devices
+- ⚡ Optimized performance with Next.js
+
+---
+
+## 🛠️ Tech Stack
+| Category | Technology |
+|----------|-----------|
+| Framework | Next.js |
+| Styling | Tailwind CSS, DaisyUI |
+| Language | TypeScript / JavaScript |
+| Deployment | Vercel |
+
+---
+
+## 📦 Dependencies
+```json
+{
+  "next": "latest",
+  "tailwindcss": "latest",
+  "daisyui": "latest",
+  "typescript": "latest"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Run Locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# 1. Clone the repository
+git clone https://github.com/Zihad-1883/YOUR-PORTFOLIO-REPO-NAME.git
 
-## Learn More
+# 2. Go into the project directory
+cd YOUR-PORTFOLIO-REPO-NAME
 
-To learn more about Next.js, take a look at the following resources:
+# 3. Install dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# 4. Run the development server
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 Relevant Links
+- 🌐 Live Site: [https://portfolio-one-eta-y6gdjq846m.vercel.app/](https://portfolio-one-eta-y6gdjq846m.vercel.app/)
+- 💼 LinkedIn: [Mizbaur Rahman Zihad](https://linkedin.com/in/mizbaur-rahman-zihad)
+- 📧 Email: zihad.pilot18@gmail.com
