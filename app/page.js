@@ -1,4 +1,6 @@
+"use client";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Portfolio from "@/components/Portfolio";
@@ -7,25 +9,37 @@ import Contact from "@/components/Contact";
 export default function Home() {
   return (
     <main className="relative min-h-screen">
-      <div className="lg:pl-32">
+      <div>
         <Hero />
+        <About />
         <Skills />
         <Education />
         <Portfolio />
         <Contact />
         
-        <footer className="py-20 px-6 text-center border-t border-white/5 bg-surface/30 backdrop-blur-md">
-          <div className="flex flex-col items-center gap-4">
-            <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-[10px] font-syne font-bold mb-2 white-glow">
-              MZ
+        <footer className="py-20 px-6 border-t border-white/5 bg-black/20 backdrop-blur-md">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="flex flex-col items-center md:items-start gap-4">
+              <div className="w-12 h-12 rounded-2xl border border-white/5 flex items-center justify-center text-xs font-syne font-bold bg-white/5 text-blue-400">
+                MZ
+              </div>
+              <p className="font-mono text-[9px] uppercase tracking-[0.5em] text-white/30">
+                © 2026 Mizbaur Rahman Zihad — Built with Precision
+              </p>
             </div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.5em] text-text-muted transition-colors hover:text-text-primary cursor-default">
-              © 2026 Mizbaur Rahman Zihad — Crafted in Silence
-            </p>
-            <div className="flex gap-6 mt-4">
-               <a href="https://github.com/Zihad-1883" target="_blank" className="font-mono text-[8px] uppercase tracking-widest text-text-muted hover:text-white transition-colors">GitHub</a>
-               <a href="https://linkedin.com/in/mizbaur-rahman-zihad" target="_blank" className="font-mono text-[8px] uppercase tracking-widest text-text-muted hover:text-white transition-colors">LinkedIn</a>
+
+            <div className="flex gap-8">
+               <a href="https://github.com/Zihad-1883" target="_blank" className="font-mono text-[10px] uppercase tracking-widest text-white/30 hover:text-blue-400 transition-colors">GitHub</a>
+               <a href="https://linkedin.com/in/mizbaur-rahman-zihad" target="_blank" className="font-mono text-[10px] uppercase tracking-widest text-white/30 hover:text-blue-400 transition-colors">LinkedIn</a>
+               <a href="https://www.facebook.com/mr.zihad.92" target="_blank" className="font-mono text-[10px] uppercase tracking-widest text-white/30 hover:text-blue-400 transition-colors">Facebook</a>
             </div>
+            
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="font-mono text-[10px] uppercase tracking-widest text-white/30 hover:text-white transition-colors"
+            >
+              Back to Top ↑
+            </button>
           </div>
         </footer>
       </div>

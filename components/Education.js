@@ -5,22 +5,22 @@ const education = [
   {
     institution: "Shahjalal University of Science and Technology",
     shortName: "SUST",
-    degree: "B.Sc. Mathematics",
-    status: "Ongoing",
-    badge: "FIRST CLASS CGPA",
+    degree: "B.Sc. in Mathematics",
+    status: "2023 - Present",
+    badge: "First Class CGPA",
   },
   {
     institution: "Higher Secondary Certificate",
     shortName: "HSC",
-    degree: "Science Stream",
-    status: "Passing Year: 2022",
+    degree: "Science Group",
+    status: "Passed 2022",
     badge: "GPA 5.00 / 5.00",
   },
   {
     institution: "Secondary School Certificate",
     shortName: "SSC",
-    degree: "Science Stream",
-    status: "Passing Year: 2020",
+    degree: "Science Group",
+    status: "Passed 2020",
     badge: "GPA 5.00 / 5.00",
   },
 ];
@@ -76,7 +76,7 @@ export default function Education() {
             </div>
 
             <div className="flex flex-col items-start gap-4 relative z-10 pt-4">
-              <div className="border w-80 border-white/40 text-white px-6 py-2.5 rounded-xl text-[11px] font-mono tracking-[0.2em] font-bold uppercase group-hover:border-white group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-xl bg-white/5">
+              <div className="border border-white/40 text-white px-6 py-2.5 rounded-xl text-[11px] font-mono tracking-[0.2em] font-bold uppercase group-hover:border-white group-hover:bg-white group-hover:text-black transition-all duration-500 shadow-xl bg-white/5">
                 {edu.badge}
               </div>
               <div className="font-mono text-[10px] text-white/50 uppercase tracking-[0.5em]">

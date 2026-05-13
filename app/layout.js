@@ -28,6 +28,7 @@ import CustomCursor from "@/components/CustomCursor";
 import StarField from "@/components/StarField";
 import ClientWrapper from "@/components/ClientWrapper";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
   return (
@@ -37,6 +38,19 @@ export default function RootLayout({ children }) {
       >
         <SmoothScrollProvider>
           <ClientWrapper>
+            <Toaster position="bottom-right" toastOptions={{
+              style: {
+                background: "rgba(0, 0, 0, 0.4)",
+                color: "#fff",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                borderRadius: "16px",
+                fontFamily: "var(--font-syne)",
+                fontSize: "12px",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              },
+            }} />
             <StarField />
             <CustomCursor />
             <Navbar />

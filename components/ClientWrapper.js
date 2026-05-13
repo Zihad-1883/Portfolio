@@ -13,7 +13,7 @@ export default function ClientWrapper({ children }) {
 
     const handleLoad = () => {
       // Cinematic delay — keep the space cat visible for impact
-      setTimeout(() => setIsLoading(false), 2500);
+      setTimeout(() => setIsLoading(false), 2000);
     };
 
     if (document.readyState === "complete") {
