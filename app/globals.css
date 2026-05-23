@@ -2,13 +2,27 @@
 
 :root {
   --bg: #020205;
-  --surface: rgba(5, 5, 10, 0.4);
-  --surface-raised: rgba(15, 15, 25, 0.6);
-  --border: rgba(255, 255, 255, 0.04);
-  --border-active: rgba(255, 255, 255, 0.12);
-  --text-primary: #F8FAFC;
-  --text-muted: #475569;
+  --surface: rgba(10, 10, 20, 0.6);
+  --surface-raised: rgba(20, 20, 35, 0.8);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-active: rgba(255, 255, 255, 0.2);
+  --text-primary: #FFFFFF;
+  --text-muted: #94A3B8; /* Brighter grey for dark mode */
   --accent: #E2E8F0;
+  --nav-bg: rgba(5, 5, 10, 0.9);
+}
+
+.light,
+[data-theme='light'] {
+  --bg: #F8FAFC;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-raised: #FFFFFF;
+  --border: rgba(0, 0, 0, 0.15);
+  --border-active: rgba(0, 0, 0, 0.4);
+  --text-primary: #0F172A;
+  --text-muted: #475569; /* Darker grey for light mode */
+  --accent: #1E293B;
+  --nav-bg: rgba(255, 255, 255, 0.95);
 }
 
 @theme inline {
@@ -32,28 +46,38 @@ body {
   font-family: var(--font-mono);
   overflow-x: hidden;
   cursor: none; /* Custom cinematic cursor */
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-syne);
   letter-spacing: -0.04em;
+  transition: color 0.5s ease;
 }
 
 /* Glassmorphism — Cinematic */
 .glass-card {
-  background: rgba(10, 10, 20, 0.3);
+  background: var(--surface);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid var(--border);
   transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.light .glass-card {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .glass-card:hover {
-  background: rgba(15, 15, 30, 0.5);
+  background: var(--surface-raised);
   border-color: var(--border-active);
   transform: translateY(-8px) scale(1.01);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+}
+
+.light .glass-card:hover {
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
 }
 
 /* Custom Utilities — Cinematic */
@@ -71,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.6rem;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: #334155;
+  color: var(--text-muted);
   opacity: 0.8;
 }
 
@@ -91,16 +115,21 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: #020205;
+  background: var(--bg);
   overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+.light .starfield {
+  opacity: 0.3;
 }
 
 .star {
   position: absolute;
-  background: white;
+  background: var(--text-primary);
   border-radius: 50%;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
+  transition: opacity 2s ease-in-out, background-color 0.5s ease;
 }
 
 @keyframes twinkle {
@@ -123,6 +152,10 @@ h1, h2, h3, h4, h5, h6 {
   animation: drift 30s infinite alternate ease-in-out;
 }
 
+.light .nebula {
+  opacity: 0.1;
+}
+
 @keyframes drift {
   from { transform: scale(1) rotate(0deg); }
   to { transform: scale(1.1) rotate(5deg); }
@@ -132,7 +165,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-dot {
   width: 4px;
   height: 4px;
-  background: white;
+  background: var(--text-primary);
   border-radius: 50%;
   position: absolute;
   left: -12px;

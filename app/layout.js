@@ -28,6 +28,9 @@ import CustomCursor from "@/components/CustomCursor";
 import StarField from "@/components/StarField";
 import ClientWrapper from "@/components/ClientWrapper";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
+import ScrollToTop from "@/components/ScrollToTop";
+import ScrollProgress from "@/components/ScrollProgress";
 import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({ children }) {
@@ -38,6 +41,7 @@ export default function RootLayout({ children }) {
       >
         <SmoothScrollProvider>
           <ClientWrapper>
+            <ScrollProgress />
             <Toaster position="bottom-right" toastOptions={{
               style: {
                 background: "rgba(0, 0, 0, 0.4)",
@@ -53,6 +57,8 @@ export default function RootLayout({ children }) {
             }} />
             <StarField />
             <CustomCursor />
+            <ThemeSwitcher />
+            <ScrollToTop />
             <Navbar />
             {children}
           </ClientWrapper>
