@@ -37,7 +37,7 @@ A modern, high-performance **personal portfolio website** for Mizbaur Rahman Zih
 |----------|-----------|
 | Framework | Next.js |
 | Styling | Tailwind CSS, DaisyUI |
-| Language | TypeScript / JavaScript |
+| Language | JavaScript |
 | Deployment | Vercel |
 
 ---
@@ -48,7 +48,7 @@ A modern, high-performance **personal portfolio website** for Mizbaur Rahman Zih
   "next": "latest",
   "tailwindcss": "latest",
   "daisyui": "latest",
-  "typescript": "latest"
+  "javascript": "ES6"
 }
 ```
 
