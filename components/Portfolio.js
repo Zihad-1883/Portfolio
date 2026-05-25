@@ -1,30 +1,48 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiExternalLink, FiLayout, FiGithub, FiMaximize2, FiX } from "react-icons/fi";
+import {
+  FiExternalLink,
+  FiLayout,
+  FiGithub,
+  FiMaximize2,
+  FiX,
+} from "react-icons/fi";
 
 const projects = [
   {
     id: 0,
     title: "SportNest",
     url: "https://l1-a9-sport-nest-sports-facility-bo-lemon.vercel.app/",
-    github: "https://github.com/Zihad-1883/L1-A9-SportNest-Sports-Facility-Booking-Management-System-Client",
+    github:
+      "https://github.com/Zihad-1883/L1-A9-SportNest-Sports-Facility-Booking-Management-System-Client",
     tags: ["Next Js", "Express Js", "MongoDB"],
     desc: "A comprehensive Sports Facility Booking Management System featuring real-time availability and secure payments.",
     stack: ["Next.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "Auth"],
-    challenges: "Managing overlapping booking slots in the backend and ensuring real-time data consistency across multiple sport facilities.",
-    future: "Add a mobile app for on-the-go bookings. Implement an AI-based recommendation system for facility usage.",
+    challenges:
+      "Managing overlapping booking slots in the backend and ensuring real-time data consistency across multiple sport facilities.",
+    future:
+      "Add a mobile app for on-the-go bookings. Implement an AI-based recommendation system for facility usage.",
   },
   {
     id: 1,
-    title: "Dragon News",
-    url: "https://project-dragon-news.vercel.app/",
-    github: "https://github.com/Zihad-1883/project-dragon-news",
-    tags: ["Next Js", "Dynamic Routing", "Better Auth"],
-    desc: "A categorized news portal delivering real-time updates with a focus on smooth navigation and readability.",
-    stack: ["Next.js", "Tailwind CSS", "API Integration", "Hero UI"],
-    challenges: "Handling nested dynamic routing for multiple categories while ensuring consistent layout states. Optimizing news data fetching for faster load times.",
-    future: "Implement user authentication for personalized news feeds. Add a search functionality with real-time filtering.",
+    title: "SkillSphere",
+    url: "https://zihad-assignment-8.vercel.app/",
+    github: "https://github.com/Zihad-1883/L1-A8-SkillSphere",
+    tags: ["Next Js", "Better Auth", "MongoDB"],
+    desc: "A modern online learning platform where users can explore courses, view lessons, and enroll in skill-based programs with secure authentication and responsive design.",
+    stack: [
+      "Next.js 16",
+      "Tailwind CSS",
+      "DaisyUI",
+      "MongoDB",
+      "Better Auth",
+      "HeroUI",
+    ],
+    challenges:
+      "Implementing protected routes with Better Auth while managing seamless user sessions and dynamic course data fetching. Maintaining responsive UI consistency across multiple sections and devices was also a major challenge.",
+    future:
+      "Add video progress tracking and certificate generation for completed courses. Implement personalized course recommendations and an instructor dashboard for uploading new courses.",
   },
   {
     id: 2,
@@ -33,9 +51,17 @@ const projects = [
     github: "https://github.com/Zihad-1883",
     tags: ["HTML", "Tailwind", "JS"],
     desc: "An immersive educational hub designed to simplify English learning through interactive modules.",
-    stack: ["HTML5", "Tailwind CSS", "JavaScript (ES6+)", "Daisy UI", "API Integration"],
-    challenges: "Creating an engaging and accessible UI for language learners. Ensuring smooth transitions between different learning levels.",
-    future: "Add speech recognition for pronunciation practice. Implement a progress tracking dashboard for users.",
+    stack: [
+      "HTML5",
+      "Tailwind CSS",
+      "JavaScript (ES6+)",
+      "Daisy UI",
+      "API Integration",
+    ],
+    challenges:
+      "Creating an engaging and accessible UI for language learners. Ensuring smooth transitions between different learning levels.",
+    future:
+      "Add speech recognition for pronunciation practice. Implement a progress tracking dashboard for users.",
   },
 ];
 
@@ -89,7 +115,10 @@ export default function Portfolio() {
             <div className="p-8 flex flex-col flex-grow relative z-30">
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag, j) => (
-                  <span key={j} className="text-[10px] font-mono border border-[var(--border-active)] px-3 py-1 rounded-full uppercase tracking-widest text-[var(--text-primary)] bg-[var(--surface)]">
+                  <span
+                    key={j}
+                    className="text-[10px] font-mono border border-[var(--border-active)] px-3 py-1 rounded-full uppercase tracking-widest text-[var(--text-primary)] bg-[var(--surface)]"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -150,24 +179,43 @@ export default function Portfolio() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div className="space-y-8">
                   <div>
-                    <h2 className="text-5xl font-syne font-bold tracking-tighter mb-4 text-[var(--text-primary)]">{selectedProject.title}</h2>
+                    <h2 className="text-5xl font-syne font-bold tracking-tighter mb-4 text-[var(--text-primary)]">
+                      {selectedProject.title}
+                    </h2>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.stack.map((s, i) => (
-                        <span key={i} className="text-[10px] font-mono text-blue-400/80 bg-blue-400/5 px-3 py-1 rounded-full uppercase tracking-widest">{s}</span>
+                        <span
+                          key={i}
+                          className="text-[10px] font-mono text-blue-400/80 bg-blue-400/5 px-3 py-1 rounded-full uppercase tracking-widest"
+                        >
+                          {s}
+                        </span>
                       ))}
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <h4 className="text-sm font-syne font-bold uppercase tracking-widest text-[var(--text-muted)]">Description</h4>
-                    <p className="font-mono text-sm text-[var(--text-muted)] leading-relaxed">{selectedProject.desc}</p>
+                    <h4 className="text-sm font-syne font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                      Description
+                    </h4>
+                    <p className="font-mono text-sm text-[var(--text-muted)] leading-relaxed">
+                      {selectedProject.desc}
+                    </p>
                   </div>
 
                   <div className="flex gap-4 pt-4">
-                    <a href={selectedProject.url} target="_blank" className="flex items-center gap-2 px-6 py-3 bg-[var(--text-primary)] text-[var(--bg)] rounded-xl font-syne font-bold text-[10px] uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all duration-500">
+                    <a
+                      href={selectedProject.url}
+                      target="_blank"
+                      className="flex items-center gap-2 px-6 py-3 bg-[var(--text-primary)] text-[var(--bg)] rounded-xl font-syne font-bold text-[10px] uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all duration-500"
+                    >
                       <FiExternalLink /> Live Project
                     </a>
-                    <a href={selectedProject.github} target="_blank" className="flex items-center gap-2 px-6 py-3 glass-card text-[var(--text-primary)] rounded-xl font-syne font-bold text-[10px] uppercase tracking-widest hover:border-[var(--text-primary)] transition-all duration-500">
+                    <a
+                      href={selectedProject.github}
+                      target="_blank"
+                      className="flex items-center gap-2 px-6 py-3 glass-card text-[var(--text-primary)] rounded-xl font-syne font-bold text-[10px] uppercase tracking-widest hover:border-[var(--text-primary)] transition-all duration-500"
+                    >
                       <FiGithub /> Repository
                     </a>
                   </div>
@@ -175,14 +223,18 @@ export default function Portfolio() {
 
                 <div className="space-y-8">
                   <div className="space-y-4">
-                    <h4 className="text-sm font-syne font-bold uppercase tracking-widest text-[var(--text-muted)]">Challenges Faced</h4>
+                    <h4 className="text-sm font-syne font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                      Challenges Faced
+                    </h4>
                     <p className="font-mono text-sm text-[var(--text-muted)] leading-relaxed italic border-l-2 border-[var(--accent)]/20 pl-6">
                       "{selectedProject.challenges}"
                     </p>
                   </div>
 
                   <div className="space-y-4">
-                    <h4 className="text-sm font-syne font-bold uppercase tracking-widest text-[var(--text-muted)]">Future Improvements</h4>
+                    <h4 className="text-sm font-syne font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                      Future Improvements
+                    </h4>
                     <p className="font-mono text-sm text-[var(--text-muted)] leading-relaxed border-l-2 border-emerald-500/20 pl-6">
                       {selectedProject.future}
                     </p>
