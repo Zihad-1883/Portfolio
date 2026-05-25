@@ -48,9 +48,22 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
+  const [showPopup, setShowPopup] = useState(false);
+
   const handleResumeDownload = () => {
-    toast.error("Resume will be available soon!", {
-      icon: '📄',
+    const link = document.createElement("a");
+    link.href = "/RESUME.pdf";
+    link.download = "Mizbaur_Rahman_Zihad_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    setShowPopup(true);
+    setTimeout(() => setShowPopup(false), 3000);
+
+    toast.success("Download has completed!", {
+      icon: '✅',
+      duration: 3000,
     });
   };
 
@@ -58,6 +71,26 @@ export default function Hero() {
     <section id="hero" ref={containerRef} className="min-h-screen flex flex-col justify-center items-center px-6 pt-16 pb-24 relative overflow-hidden bg-[var(--bg)]">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0%,transparent_70%)] pointer-events-none" />
+
+      {/* Download Completion Popup */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.9 }}
+            className="fixed bottom-10 z-[200] px-6 py-4 glass-card rounded-2xl flex items-center gap-4 bg-blue-500/10 border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]"
+          >
+            <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+              <FiArrowDown className="text-xl animate-bounce" />
+            </div>
+            <div>
+              <h4 className="font-syne font-bold text-sm text-[var(--text-primary)] tracking-wide">Download Success</h4>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-blue-400 font-bold opacity-80">Resume is ready for you</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <div ref={avatarRef} className="w-56 h-56 rounded-full border border-[var(--border)] bg-[var(--surface)] flex items-center justify-center mb-8 shadow-2xl relative overflow-hidden group cursor-pointer transition-all duration-700">
         <img

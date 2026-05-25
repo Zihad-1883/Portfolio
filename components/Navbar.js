@@ -55,10 +55,7 @@ export default function Navbar() {
       <div className={`flex items-center justify-between px-6 py-3 rounded-2xl transition-all duration-500 ${scrolled ? "bg-[var(--nav-bg)] backdrop-blur-xl border border-[var(--border)] shadow-2xl" : "bg-transparent border border-transparent"
         }`}>
         <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollTo("hero")}>
-          <div className="w-10 h-10 rounded-xl border border-[var(--border)] flex items-center justify-center bg-[var(--surface)] text-xs font-syne font-bold text-blue-400 group-hover:border-blue-400/50 group-hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-500">
-            MZ
-          </div>
-          <span className="font-syne font-bold text-sm tracking-tighter hidden sm:block text-[var(--text-primary)]">Zihad.</span>
+          <span className="font-syne font-bold text-sm tracking-tighter text-[var(--text-primary)]">Zihad.</span>
         </div>
 
         <div className="hidden lg:flex items-center gap-1">

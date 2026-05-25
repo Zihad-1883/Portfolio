@@ -20,9 +20,6 @@ export default function Home() {
         <footer className="py-20 px-6 border-t border-white/5 bg-black/20 backdrop-blur-md">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col items-center md:items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl border border-white/5 flex items-center justify-center text-xs font-syne font-bold bg-white/5 text-blue-400">
-                MZ
-              </div>
               <p className="font-mono text-[9px] uppercase tracking-[0.5em] text-white/30">
                 © 2026 Mizbaur Rahman Zihad — Built with Precision
               </p>
