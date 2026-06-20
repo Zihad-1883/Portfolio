@@ -72,6 +72,7 @@ const skillCategories = [
         icon: <SiExpress className="text-[var(--text-primary)]" />,
       },
       { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
       { name: "JWT", icon: <SiJsonwebtokens className="text-[#d63aff]" /> },
       { name: "Auth", icon: <FaCode className="text-[var(--text-primary)]" /> },
     ],

@@ -8,10 +8,53 @@ import {
   FiMaximize2,
   FiX,
 } from "react-icons/fi";
+import Image from "next/image";
 
 const projects = [
   {
     id: 0,
+    title: "FIFA World Cup 2026 Prediction",
+    url: "https://world-cup-2026-nine-eta.vercel.app/",
+    github: "https://github.com/Zihad-1883/world-cup-2026",
+    tags: ["Next Js", "PostgreSQL", "Fullstack"],
+    desc: "A premium, full-stack prediction platform for the 2026 FIFA World Cup. Features live match tracking, expert analysis, and competitive prediction modes.",
+    stack: [
+      "Next.js 14 (App Router)",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "PostgreSQL (Neon)",
+      "JWT Auth",
+    ],
+    challenges:
+      "Integrating real-time football data APIs and managing complex prediction logic for group standings and knockout rounds. Implementing a high-performance nested comment system for community intelligence.",
+    future:
+      "Implement a global leaderboard with prize pools for top predictors. Add social features like 'Friends Leagues' and live match chat rooms.",
+  },
+  {
+    id: 1,
+    title: "DevPulse",
+    url: "https://dev-pulse-l2-a2-psi.vercel.app",
+    github: "https://github.com/Zihad-1883/L2-A2-DevPulse-",
+    image: "/devpulse.png",
+    tags: ["TypeScript", "PostgreSQL", "API"],
+    desc: "A RESTful backend API for software teams to report bugs, suggest features, and coordinate resolutions with role-based access control.",
+    stack: [
+      "Node.js",
+      "TypeScript",
+      "Express",
+      "PostgreSQL",
+      "JWT",
+      "Bcrypt",
+      "NeonDB",
+    ],
+    challenges:
+      "Implementing advanced role-based access control (RBAC) and ensuring secure password hashing and refresh-token rotation. Designing a scalable PostgreSQL schema for issue tracking.",
+    future:
+      "Develop a frontend dashboard using React. Integrate email notifications for issue updates. Add support for file attachments to bug reports.",
+  },
+  {
+    id: 2,
     title: "SportNest",
     url: "https://l1-a9-sport-nest-sports-facility-bo-lemon.vercel.app/",
     github:
@@ -25,7 +68,7 @@ const projects = [
       "Add a mobile app for on-the-go bookings. Implement an AI-based recommendation system for facility usage.",
   },
   {
-    id: 1,
+    id: 3,
     title: "SkillSphere",
     url: "https://zihad-assignment-8.vercel.app/",
     github: "https://github.com/Zihad-1883/L1-A8-SkillSphere",
@@ -45,7 +88,7 @@ const projects = [
       "Add video progress tracking and certificate generation for completed courses. Implement personalized course recommendations and an instructor dashboard for uploading new courses.",
   },
   {
-    id: 2,
+    id: 4,
     title: "English Janala",
     url: "https://zihad-1883.github.io/Project-English-Janala/",
     github: "https://github.com/Zihad-1883",
@@ -102,12 +145,22 @@ export default function Portfolio() {
           >
             {/* Visual Header */}
             <div className="h-56 w-full bg-[var(--surface-raised)] relative overflow-hidden">
-              <iframe
-                src={project.url}
-                className="absolute inset-0 w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none opacity-40 group-hover:opacity-80 transition-all duration-1000 z-10"
-                loading="lazy"
-                title={project.title}
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover opacity-60 group-hover:opacity-100 transition-all duration-1000 z-10"
+                  unoptimized
+                />
+              ) : (
+                <iframe
+                  src={project.url || "about:blank"}
+                  className="absolute inset-0 w-[400%] h-[400%] origin-top-left scale-[0.25] pointer-events-none opacity-40 group-hover:opacity-80 transition-all duration-1000 z-10"
+                  loading="lazy"
+                  title={project.title}
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)]/80 via-transparent to-transparent z-20" />
             </div>
 
@@ -227,7 +280,7 @@ export default function Portfolio() {
                       Challenges Faced
                     </h4>
                     <p className="font-mono text-sm text-[var(--text-muted)] leading-relaxed italic border-l-2 border-[var(--accent)]/20 pl-6">
-                      "{selectedProject.challenges}"
+                      &quot;{selectedProject.challenges}&quot;
                     </p>
                   </div>
 
