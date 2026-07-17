@@ -86,7 +86,7 @@ export default function Hero() {
         <div className="order-1 lg:order-2 flex justify-center items-center">
           <div className="photo-card relative group">
             <div className="absolute -inset-10 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0" />
-            
+
             <div className="w-[300px] h-[380px] md:w-[380px] md:h-[480px] rounded-[3rem] overflow-hidden glass-card p-3 relative z-10 border-white/20 dark:border-white/5 rotate-3 hover:rotate-0 transition-all duration-700 hover:scale-[1.02]">
               <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
                 <Image
@@ -112,7 +112,7 @@ export default function Hero() {
                 <div className="w-2 h-2 rounded-full bg-blue-500 opacity-40" />
                 <div className="w-2 h-2 rounded-full bg-blue-500 opacity-20" />
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-widest font-bold">Backend AI Engineer</span>
+              <span className="font-mono text-[9px] uppercase tracking-widest font-bold">Backend AI Engineering Enthusiast</span>
             </motion.div>
 
             <motion.div
@@ -139,9 +139,8 @@ export default function Hero() {
           </h5>
 
           <h1 className="hero-reveal font-syne text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-[var(--text-primary)]">
-            Backend AI & <br/>
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
-              Full-Stack Engineer
+              Full-Stack Developer
             </span>
           </h1>
 
