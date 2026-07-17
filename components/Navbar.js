@@ -1,13 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
-import { FiHome, FiZap, FiBookOpen, FiBriefcase, FiMail, FiUser } from "react-icons/fi";
+import { FiHome, FiZap, FiBookOpen, FiBriefcase, FiMail, FiUser, FiAward } from "react-icons/fi";
 
 const navItems = [
   { id: "hero", icon: <FiHome />, label: "Home" },
   { id: "about", icon: <FiUser />, label: "About" },
   { id: "skills", icon: <FiZap />, label: "Skills" },
-  { id: "education", icon: <FiBookOpen />, label: "Education" },
   { id: "portfolio", icon: <FiBriefcase />, label: "Projects" },
+  { id: "experience", icon: <FiAward />, label: "Experience" },
+  { id: "education", icon: <FiBookOpen />, label: "Education" },
   { id: "contact", icon: <FiMail />, label: "Contact" },
 ];
 
@@ -84,18 +85,18 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[400px] lg:hidden z-50">
-        <div className="flex justify-around items-center p-3 bg-[var(--nav-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl shadow-2xl">
-          {navItems.filter(item => ["hero", "about", "skills", "portfolio", "contact"].includes(item.id)).map((item) => (
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[420px] lg:hidden z-50">
+        <div className="flex justify-around items-center p-2.5 bg-[var(--nav-bg)] backdrop-blur-xl border border-[var(--border)] rounded-2xl shadow-2xl">
+          {navItems.filter(item => ["hero", "about", "skills", "portfolio", "experience", "education", "contact"].includes(item.id)).map((item) => (
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className={`p-3 transition-all duration-300 rounded-xl flex flex-col items-center gap-1 ${activeSection === item.id
+              className={`p-2.5 transition-all duration-300 rounded-xl flex flex-col items-center gap-1 ${activeSection === item.id
                   ? "text-blue-400 bg-blue-400/10 scale-110 shadow-[0_0_15px_rgba(59,130,246,0.2)]"
                   : "text-[var(--text-muted)]"
                 }`}
             >
-              <span className={`text-xl ${activeSection === item.id ? "drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" : ""}`}>{item.icon}</span>
+              <span className={`text-lg ${activeSection === item.id ? "drop-shadow-[0_0_8px_rgba(59,130,246,0.6)]" : ""}`}>{item.icon}</span>
             </button>
           ))}
         </div>

@@ -35,7 +35,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="section-label mb-4"
         >
-          — 03 EDUCATION —
+          — 05 EDUCATION —
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

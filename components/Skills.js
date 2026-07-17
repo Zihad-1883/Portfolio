@@ -12,16 +12,13 @@ import {
   SiTypescript,
   SiGit,
   SiGithub,
-  SiDaisyui,
   SiPostgresql,
   SiJsonwebtokens,
+  SiPrisma,
 } from "react-icons/si";
 import {
   FaPenNib,
-  FaCode,
   FaCss3Alt,
-  FaFileWord,
-  FaFileExcel,
 } from "react-icons/fa";
 
 const skillCategories = [
@@ -41,7 +38,7 @@ const skillCategories = [
         icon: (
           <img
             src="https://img.daisyui.com/images/daisyui/daisyui-logo-192.png"
-            className="w-10 h-10 object-contain"
+            className="w-10 h-10 object-contain shadow-[0_0_15px_rgba(255,255,255,0.05)]"
             alt="DaisyUI"
           />
         ),
@@ -56,7 +53,7 @@ const skillCategories = [
         icon: (
           <img
             src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-            className="w-10 h-10 object-contain"
+            className="w-10 h-10 object-contain shadow-[0_0_15px_rgba(255,255,255,0.05)]"
             alt="HeroUI"
           />
         ),
@@ -73,12 +70,22 @@ const skillCategories = [
       },
       { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
+      { name: "Prisma", icon: <SiPrisma className="text-[var(--text-primary)]" /> },
       { name: "JWT", icon: <SiJsonwebtokens className="text-[#d63aff]" /> },
-      { name: "Auth", icon: <FaCode className="text-[var(--text-primary)]" /> },
+      {
+        name: "Better Auth",
+        icon: (
+          <img
+            src="https://bestofjs.org/logos/betterauth.svg"
+            className="w-10 h-10 object-contain white-glow-drop"
+            alt="Better Auth"
+          />
+        ),
+      },
     ],
   },
   {
-    title: "Tools & Others",
+    title: "Tools & AI",
     skills: [
       { name: "Git", icon: <SiGit className="text-[#F05032]" /> },
       {
@@ -86,6 +93,87 @@ const skillCategories = [
         icon: <SiGithub className="text-[var(--text-primary)]" />,
       },
       { name: "Figma", icon: <FaPenNib className="text-pink-500" /> },
+      {
+        name: "VS Code",
+        icon: (
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/960px-Visual_Studio_Code_1.35_icon.svg.png"
+            className="w-10 h-10 object-contain"
+            alt="VS Code"
+          />
+        ),
+      },
+      {
+        name: "LLM Integration",
+        icon: (
+          <svg className="w-10 h-10 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+            <line x1="12" y1="22.08" x2="12" y2="12" />
+            <circle cx="12" cy="12" r="2.5" fill="currentColor" fillOpacity="0.2" />
+          </svg>
+        ),
+      },
+      {
+        name: "Antigravity",
+        icon: (
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShNCehAPz3TurboK5MAlHDdlMa0Le12Lis_hiCdVGPW34FZZ090J1ZP0Q&s=10"
+            className="w-10 h-10 object-contain rounded-full shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+            alt="Antigravity"
+          />
+        ),
+      },
+      {
+        name: "Claude Code",
+        icon: (
+          <img
+            src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/claudecode-color.png"
+            className="w-10 h-10 object-contain"
+            alt="Claude Code"
+          />
+        ),
+      },
+      {
+        name: "Copilot",
+        icon: (
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQA7D9lDAr6zXmkubGirzNEtykfiHa-K0C3XyeqwqbBjFDxOriv5pf-pQ&s=10"
+            className="w-10 h-10 object-contain"
+            alt="Copilot"
+          />
+        ),
+      },
+      {
+        name: "Cursor",
+        icon: (
+          <img
+            src="https://static.cdnlogo.com/logos/c/44/cursor_800.png"
+            className="w-10 h-10 object-contain"
+            alt="Cursor"
+          />
+        ),
+      },
+      {
+        name: "Google Stitch",
+        icon: (
+          <img
+            src="https://thumbs.dreamstime.com/b/google-logo-vector-format-white-background-illustration-407571048.jpg"
+            className="w-10 h-10 object-contain rounded-lg"
+            alt="Google Stitch"
+          />
+        ),
+      },
+      {
+        name: "Lovable",
+        icon: (
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV-gE7ZMY76k97p3Y8GHDhdVUmLx0Go9c2eVt9XMDGWLkRPq855w9A2vo&s=10"
+            className="w-10 h-10 object-contain"
+            alt="Lovable"
+          />
+        ),
+      },
     ],
   },
 ];
