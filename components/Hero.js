@@ -7,14 +7,13 @@ import { FiGithub, FiLinkedin, FiFacebook, FiArrowDown, FiDownload, FiSend } fro
 import toast from "react-hot-toast";
 
 const titles = [
-  "Mizbaur Rahman Zihad",
-  "22",
-  "Fullstack Developer",
-  "Next Js Specialist",
-  "Continuous Learner"
+  "Production-Grade Backend Architectures",
+  "AI Integration & LLM Orchestration",
+  "Scalable Database Design & PostgreSQL",
+  "Modern Next.js Web Implementations"
 ];
 
-const emotionalStatement = "Engineering the future of the web with elite precision and immersive design.";
+const valueProposition = "I design and build high-performance APIs, robust database architectures, and AI-integrated web applications. Specialized in Next.js, Express, PostgreSQL, and LLM automation.";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -113,7 +112,7 @@ export default function Hero() {
                 <div className="w-2 h-2 rounded-full bg-blue-500 opacity-40" />
                 <div className="w-2 h-2 rounded-full bg-blue-500 opacity-20" />
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-widest font-bold">Solutions Architect</span>
+              <span className="font-mono text-[9px] uppercase tracking-widest font-bold">Backend AI Engineer</span>
             </motion.div>
 
             <motion.div
@@ -136,45 +135,58 @@ export default function Hero() {
           </motion.div>
 
           <h5 className="hero-reveal font-syne font-bold text-xl md:text-2xl mb-4 tracking-tight text-[var(--text-primary)] opacity-60">
-            Hi, I&apos;m
+            Hi, I&apos;m Mizbaur Rahman Zihad
           </h5>
 
-          <h1 className="hero-reveal font-syne text-7xl md:text-[8rem] font-extrabold mb-8 tracking-tighter leading-none text-[var(--text-primary)]">
-            Zihad<span className="text-blue-500">.</span>
+          <h1 className="hero-reveal font-syne text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-[var(--text-primary)]">
+            Backend AI & <br/>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+              Full-Stack Engineer
+            </span>
           </h1>
 
-          <div className="hero-reveal h-12 mb-10 overflow-hidden">
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={index}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="font-mono text-lg md:text-xl text-[var(--text-primary)] font-bold tracking-[0.1em]"
-              >
-                {titles[index]}
-              </motion.p>
-            </AnimatePresence>
+          <div className="hero-reveal flex items-center gap-3 mb-10 h-12">
+            <span className="font-mono text-xs uppercase tracking-widest text-blue-500 font-bold">Focus:</span>
+            <div className="overflow-hidden h-full flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={index}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="font-sans text-lg md:text-xl text-[var(--text-primary)] font-bold tracking-wide"
+                >
+                  {titles[index]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
           </div>
 
           <p className="hero-reveal max-w-xl font-mono text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-12">
-            {emotionalStatement}
+            {valueProposition}
           </p>
 
-          <div className="hero-reveal flex flex-wrap gap-6 justify-center lg:justify-start">
+          <div className="hero-reveal flex flex-wrap gap-5 justify-center lg:justify-start items-center">
             <button
-              onClick={handleResumeDownload}
-              className="px-10 py-5 bg-[var(--text-primary)] text-[var(--bg)] rounded-2xl font-syne font-bold uppercase tracking-widest text-[11px] hover:translate-y-[-4px] active:scale-95 transition-all duration-300 shadow-2xl flex items-center gap-3"
+              onClick={() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-2xl font-syne font-bold uppercase tracking-widest text-xs hover:translate-y-[-4px] hover:shadow-[0_10px_25px_rgba(59,130,246,0.3)] active:scale-95 transition-all duration-300 shadow-2xl flex items-center gap-3 cursor-pointer"
             >
-              Resume <FiDownload className="text-base" />
+              Explore Projects
             </button>
 
             <button
               onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
-              className="px-10 py-5 glass-card rounded-2xl font-syne font-bold uppercase tracking-widest text-[11px] text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg)] active:scale-95 transition-all duration-300 flex items-center gap-3"
+              className="px-8 py-4 glass-card rounded-2xl font-syne font-bold uppercase tracking-widest text-xs text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg)] active:scale-95 transition-all duration-300 flex items-center gap-3 cursor-pointer"
             >
-              Contact <FiSend className="text-base" />
+              Let&apos;s Connect <FiSend className="text-sm" />
+            </button>
+
+            <button
+              onClick={handleResumeDownload}
+              className="px-6 py-4 font-mono text-xs uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--text-primary)] flex items-center gap-2 transition-colors cursor-pointer"
+            >
+              <FiDownload className="text-sm" /> Download CV
             </button>
           </div>
 
