@@ -168,6 +168,13 @@ export default function Hero() {
 
           <div className="hero-reveal flex flex-wrap gap-5 justify-center lg:justify-start items-center">
             <button
+              onClick={handleResumeDownload}
+              className="px-8 py-4 bg-[var(--text-primary)] text-[var(--bg)] rounded-2xl font-syne font-bold uppercase tracking-widest text-xs hover:translate-y-[-4px] hover:shadow-[0_10px_25px_rgba(255,255,255,0.15)] dark:hover:shadow-[0_10px_25px_rgba(255,255,255,0.05)] active:scale-95 transition-all duration-300 shadow-2xl flex items-center gap-3 cursor-pointer"
+            >
+              Download CV <FiDownload className="text-sm" />
+            </button>
+
+            <button
               onClick={() => document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-2xl font-syne font-bold uppercase tracking-widest text-xs hover:translate-y-[-4px] hover:shadow-[0_10px_25px_rgba(59,130,246,0.3)] active:scale-95 transition-all duration-300 shadow-2xl flex items-center gap-3 cursor-pointer"
             >
@@ -179,13 +186,6 @@ export default function Hero() {
               className="px-8 py-4 glass-card rounded-2xl font-syne font-bold uppercase tracking-widest text-xs text-[var(--text-primary)] hover:bg-[var(--text-primary)] hover:text-[var(--bg)] active:scale-95 transition-all duration-300 flex items-center gap-3 cursor-pointer"
             >
               Let&apos;s Connect <FiSend className="text-sm" />
-            </button>
-
-            <button
-              onClick={handleResumeDownload}
-              className="px-6 py-4 font-mono text-xs uppercase tracking-widest text-[var(--text-muted)] hover:text-[var(--text-primary)] flex items-center gap-2 transition-colors cursor-pointer"
-            >
-              <FiDownload className="text-sm" /> Download CV
             </button>
           </div>
 
