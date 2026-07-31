@@ -37,7 +37,7 @@ export default function Contact() {
           transition={{ delay: 0.2 }}
           className="text-4xl md:text-5xl font-syne font-bold text-center glow-text"
         >
-          Let's Build Something
+          Let&apos;s Build Something
         </motion.h2>
       </div>
 
@@ -50,11 +50,31 @@ export default function Contact() {
           transition={{ duration: 1 }}
           className="space-y-12"
         >
-            <div className="space-y-8">
+          <div className="space-y-6">
             <h3 className="text-3xl font-syne font-bold tracking-tighter text-[var(--text-primary)]">Get In Touch</h3>
-            <p className="text-xl font-mono text-[var(--text-muted)] leading-relaxed max-w-md">
-              Whether you have a question, a project idea, or just want to say hi, my inbox is always open.
+            <p className="text-sm font-mono text-[var(--text-muted)] leading-relaxed max-w-md">
+              Whether you have a full-time role, contract work, or a collaborative project, feel free to reach out.
             </p>
+
+            {/* Open for Opportunities Badge Card */}
+            <div className="p-6 rounded-2xl bg-blue-500/5 border border-blue-500/20 space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-emerald-400">
+                  Open For Opportunities
+                </span>
+              </div>
+              <p className="font-mono text-xs text-[var(--text-muted)] leading-relaxed">
+                Actively seeking roles where I can contribute to robust APIs, database design, and full-stack web applications:
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Junior / Associate Full-Stack Developer", "Backend Developer (Node.js/Express)", "AI Engineering Intern / Trainee"].map((role, rIdx) => (
+                  <span key={rIdx} className="text-[10px] font-mono text-blue-400 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full font-bold">
+                    🎯 {role}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -69,7 +89,7 @@ export default function Contact() {
             </a>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-2">
             <a href="https://github.com/Zihad-1883" target="_blank" className="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-xl text-[var(--text-primary)] border border-[var(--border-active)] hover:text-blue-400 hover:border-blue-400 transition-all duration-500 font-bold"><FiGithub /></a>
             <a href="https://linkedin.com/in/mizbaur-rahman-zihad" target="_blank" className="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-xl text-[var(--text-primary)] border border-[var(--border-active)] hover:text-blue-400 hover:border-blue-400 transition-all duration-500 font-bold"><FiLinkedin /></a>
             <a href="https://www.facebook.com/mr.zihad.92" target="_blank" className="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-xl text-[var(--text-primary)] border border-[var(--border-active)] hover:text-blue-400 hover:border-blue-400 transition-all duration-500 font-bold"><FiFacebook /></a>

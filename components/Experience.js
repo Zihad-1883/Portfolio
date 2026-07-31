@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FiCpu, 
@@ -18,12 +18,11 @@ const experiences = [
     period: "July 2026 - Sept 2026",
     badge: "Approved Internship",
     icon: <FiCpu className="text-blue-400 text-3xl" />,
-    summary: "Accepted into the FlyRank AI Internship program to build robust pipelines and integrate advanced AI capabilities into backend infrastructure.",
+    summary: "Accepted into the FlyRank AI Internship program to build robust backend pipelines and integrate AI workflows into cloud applications.",
     details: [
-      "Role / title: Back-End AI Engineering Intern",
-      "Duration: 12 weeks (July 1, 2026 - September 23, 2026)",
-      "Technical focus: Backend systems and AI engineering workflows",
-      "Status: Officially accepted and approved"
+      "Architect backend API routes using Express & Node.js to stream LLM responses and manage asynchronous tasks.",
+      "Integrate vector search workflows and AI prompt chains using PostgreSQL, TypeScript, and cloud services.",
+      "Collaborate in a remote-first engineering workflow, adhering to strict API contract testing and schema validation standards."
     ],
     hasLetter: true,
     verification: "verify@internship.flyrank.ai",
@@ -33,7 +32,7 @@ const experiences = [
       to: "To whom it may concern,",
       body: "This letter confirms that Mizbaur Rahman Zihad (mrzihadyt19@gmail.com) has been accepted into the FlyRank AI Internship program as a Back-End AI Engineering Intern for July 2026.",
       fields: [
-        { label: "Intern Name", value: "MIzbaur Rahman Zihad" },
+        { label: "Intern Name", value: "Mizbaur Rahman Zihad" },
         { label: "Role / Title", value: "Back-End AI Engineering Intern" },
         { label: "Program", value: "July 2026 - Backend AI Engineering" },
         { label: "Start Date", value: "July 1, 2026" },
@@ -53,11 +52,11 @@ const experiences = [
     period: "April 2026 - Present",
     badge: "In Progress",
     icon: <FiTerminal className="text-emerald-400 text-3xl" />,
-    summary: "Intense bootcamp mastering the PENN stack integrated with cutting-edge AI engineering, containerization and cloud infrastructure.",
+    summary: "Intense engineering track mastering PostgreSQL, Express, Next.js, and Node.js combined with modern AI workflows.",
     details: [
-      "PENN Stack Development (PostgreSQL, Express, Next.js, Node.js)",
-      "AI Engineering concepts including RAG (Retrieval-Augmented Generation), vector databases, and semantic search",
-      "Cloud & Container Orchestration via AWS and Docker"
+      "Engineered full-stack applications with Next.js App Router, Express, and PostgreSQL, reducing query latency via Prisma connection pooling.",
+      "Implemented Retrieval-Augmented Generation (RAG) pipelines using vector embeddings to enable semantic document search.",
+      "Containerized microservices using Docker and deployed cloud applications with Docker Compose and production environment configurations."
     ]
   },
   {
@@ -67,17 +66,32 @@ const experiences = [
     period: "Dec 2025 - June 2026",
     badge: "Completed",
     icon: <FiAward className="text-amber-400 text-3xl" />,
-    summary: "Comprehensive training of full-stack web architectures, APIs, databases, and responsive client-side development.",
+    summary: "Rigorous full-stack training covering database design, secure RESTful APIs, and modern frontend application development.",
     details: [
-      "Acquired expertise in the MENN Stack (MongoDB, Express, Next.js, Node.js)",
-      "Designed and deployed responsive full-stack applications with custom authentication systems",
-      "Mastered clean RESTful APIs, data validation, and database modeling concepts"
+      "Developed 10+ full-stack web applications using Node.js, Express, MongoDB, and React with responsive UI frameworks.",
+      "Implemented JWT and Better Auth authentication systems with role-based access control (RBAC) to secure user data across client-server boundaries.",
+      "Integrated third-party services including payment gateways (SSLCommerz) and image hosting APIs (Cloudinary) to power real-world transactional apps."
     ]
   }
 ];
 
 export default function Experience() {
   const [selectedLetter, setSelectedLetter] = useState(null);
+
+  useEffect(() => {
+    if (selectedLetter) {
+      document.body.style.overflow = "hidden";
+      window.__lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      window.__lenis?.start();
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+      window.__lenis?.start();
+    };
+  }, [selectedLetter]);
 
   return (
     <section id="experience" className="py-32 px-6 max-w-7xl mx-auto">
@@ -175,6 +189,7 @@ export default function Experience() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            data-lenis-prevent="true"
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-2xl bg-[var(--bg)]/85"
             onClick={() => setSelectedLetter(null)}
           >
@@ -182,6 +197,7 @@ export default function Experience() {
               initial={{ scale: 0.9, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 30, opacity: 0 }}
+              data-lenis-prevent="true"
               className="glass-card w-full max-w-4xl h-[85vh] rounded-[2.5rem] p-6 relative shadow-[0_0_100px_rgba(59,130,246,0.15)] border border-[var(--border-active)] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >

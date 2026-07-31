@@ -7,13 +7,13 @@ import { FiGithub, FiLinkedin, FiFacebook, FiArrowDown, FiDownload, FiSend } fro
 import toast from "react-hot-toast";
 
 const titles = [
-  "Production-Grade Backend Architectures",
-  "AI Integration & LLM Orchestration",
-  "Scalable Database Design & PostgreSQL",
+  "Scalable Backend Architectures",
+  "Full-Stack Web Applications",
+  "PostgreSQL & Relational Data Modeling",
   "Modern Next.js Web Implementations"
 ];
 
-const valueProposition = "I design and build high-performance APIs, robust database architectures, and AI-integrated web applications. Specialized in Next.js, Express, PostgreSQL, and LLM automation.";
+const valueProposition = "Full-Stack Developer specializing in Next.js, Node.js, TypeScript, and PostgreSQL. Focused on building clean frontend experiences and robust backend APIs, while actively exploring AI engineering and production systems.";
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -76,7 +76,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" ref={containerRef} className="min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-32 relative overflow-hidden bg-[var(--bg)]">
+    <section id="hero" ref={containerRef} className="min-h-screen flex flex-col justify-center items-center px-6 pt-24 pb-32 relative overflow-hidden">
       {/* Background Orbs — Light & Dark optimized */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none bg-glow dark:bg-blue-600/5" />
       <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] pointer-events-none bg-glow dark:bg-purple-600/5" />
@@ -112,7 +112,7 @@ export default function Hero() {
                 <div className="w-2 h-2 rounded-full bg-blue-500 opacity-40" />
                 <div className="w-2 h-2 rounded-full bg-blue-500 opacity-20" />
               </div>
-              <span className="font-mono text-[9px] uppercase tracking-widest font-bold">Backend AI Engineering Enthusiast</span>
+              <span className="font-mono text-[9px] uppercase tracking-widest font-bold">Full-Stack & Backend Focus</span>
             </motion.div>
 
             <motion.div
@@ -120,7 +120,7 @@ export default function Hero() {
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               className="absolute -bottom-10 -left-6 glass-card px-6 py-4 rounded-2xl border-white/20 z-20 backdrop-blur-xl shadow-2xl"
             >
-              <span className="text-2xl font-bold font-syne text-blue-500">20+</span>
+              <span className="text-2xl font-bold font-syne text-blue-500">15+</span>
               <p className="font-mono text-[8px] uppercase tracking-widest font-bold">Projects Built</p>
             </motion.div>
           </div>
@@ -128,23 +128,32 @@ export default function Hero() {
 
         {/* Text Section */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1">
-          <motion.div className="hero-reveal mb-8">
+          <motion.div className="hero-reveal mb-6">
             <span className="px-4 py-2 bg-blue-500/10 text-blue-500 rounded-full font-mono text-[10px] font-bold tracking-[0.3em] uppercase border border-blue-500/20">
               Open for Opportunities
             </span>
           </motion.div>
 
-          <h5 className="hero-reveal font-syne font-bold text-xl md:text-2xl mb-4 tracking-tight text-[var(--text-primary)] opacity-60">
+          <h5 className="hero-reveal font-syne font-bold text-xl md:text-2xl mb-3 tracking-tight text-[var(--text-primary)] opacity-70">
             Hi, I&apos;m Mizbaur Rahman Zihad
           </h5>
 
-          <h1 className="hero-reveal font-syne text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-6 text-[var(--text-primary)]">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+          <h1 className="hero-reveal font-syne text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] mb-4 text-[var(--text-primary)]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500">
               Full-Stack Developer
             </span>
           </h1>
 
-          <div className="hero-reveal flex items-center gap-3 mb-10 h-12">
+          {/* Core Tech Pill Stack */}
+          <div className="hero-reveal flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+            {["Next.js", "Express.js", "TypeScript", "PostgreSQL"].map((tech, idx) => (
+              <span key={idx} className="px-3 py-1 bg-[var(--surface-raised)] border border-[var(--border-active)] text-blue-400 text-[11px] font-mono font-bold uppercase tracking-wider rounded-lg shadow-sm">
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="hero-reveal flex items-center gap-3 mb-6 h-10">
             <span className="font-mono text-xs uppercase tracking-widest text-blue-500 font-bold">Focus:</span>
             <div className="overflow-hidden h-full flex items-center">
               <AnimatePresence mode="wait">
@@ -162,8 +171,12 @@ export default function Hero() {
             </div>
           </div>
 
-          <p className="hero-reveal max-w-xl font-mono text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-12">
+          <p className="hero-reveal max-w-xl font-mono text-sm md:text-base text-[var(--text-muted)] leading-relaxed mb-4">
             {valueProposition}
+          </p>
+
+          <p className="hero-reveal max-w-xl font-mono text-xs text-blue-400/90 tracking-wide mb-10 border-l-2 border-blue-500/40 pl-4 py-1">
+            Currently exploring <span className="font-bold text-[var(--text-primary)]">Backend architecture</span>, <span className="font-bold text-[var(--text-primary)]">AI engineering</span>, and <span className="font-bold text-[var(--text-primary)]">RAG systems</span>.
           </p>
 
           <div className="hero-reveal flex flex-wrap gap-5 justify-center lg:justify-start items-center">

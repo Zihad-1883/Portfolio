@@ -6,14 +6,12 @@ import SpaceCatLoader from "./SpaceCatLoader";
 
 export default function ClientWrapper({ children }) {
   const [isLoading, setIsLoading] = useState(true);
-  const [hasHydrated, setHasHydrated] = useState(false);
 
   useEffect(() => {
-    setHasHydrated(true);
 
     const handleLoad = () => {
-      // Cinematic delay — keep the space cat visible for impact
-      setTimeout(() => setIsLoading(false), 2000);
+      // Exactly 1.5s display + 0.5s transition = 2.0s total duration
+      setTimeout(() => setIsLoading(false), 1500);
     };
 
     if (document.readyState === "complete") {
@@ -21,7 +19,7 @@ export default function ClientWrapper({ children }) {
     } else {
       window.addEventListener("load", handleLoad);
       // Fallback timer
-      const fallback = setTimeout(handleLoad, 6000);
+      const fallback = setTimeout(handleLoad, 3000);
       
       return () => {
         window.removeEventListener("load", handleLoad);
@@ -39,10 +37,10 @@ export default function ClientWrapper({ children }) {
             initial={{ opacity: 1 }}
             exit={{ 
               opacity: 0,
-              filter: "blur(20px)",
-              scale: 1.1
+              filter: "blur(12px)",
+              scale: 1.05
             }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-[9999] bg-[#020205]"
           >
             <SpaceCatLoader />
@@ -53,7 +51,7 @@ export default function ClientWrapper({ children }) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
       >
         {children}
       </motion.div>
