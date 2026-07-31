@@ -154,12 +154,12 @@ add_skill("Soft Skills", "Logical reasoning, Problem Solving, growth mindset")
 
 # PRACTICAL EXPERIENCE
 add_heading("PRACTICAL EXPERIENCE")
-add_item_title("Back-End AI Engineering Intern — FlyRank AI", "Jan 2026 – Sept 2026")
+add_item_title("Back-End AI Engineering Intern — FlyRank AI", "July 2026 – Sept 2026")
 add_bullet("Architected backend API routes using Express.js & Node.js to stream LLM responses and manage asynchronous background tasks.")
 add_bullet("Integrated vector search workflows and AI prompt pipelines utilizing PostgreSQL, TypeScript, and cloud infrastructure.")
 add_bullet("Enforced strict API contract testing, schema validation, and remote-first version control standards.")
 
-add_item_title("Complete Web Development Course — Programming Hero", "Jan 2026 – Jun 2026")
+add_item_title("Complete Web Development Course — Programming Hero", "Dec 2025 – Jun 2026")
 add_bullet("Completed extensive project-based training covering full-stack JavaScript, React, Node.js, Express, MongoDB, secure deployment, and version-controlled Git workflows.")
 add_bullet("Developed production-ready frontend and full-stack projects featuring protected router states and smooth user authentication flows.")
 
