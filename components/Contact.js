@@ -1,12 +1,23 @@
 "use client";
 import { motion } from "framer-motion";
-import { FiMail, FiPhone, FiMessageCircle, FiMapPin, FiSend, FiGithub, FiLinkedin, FiFacebook } from "react-icons/fi";
+import { FiMail, FiPhone, FiMessageCircle, FiMapPin, FiSend, FiGithub, FiLinkedin, FiFacebook, FiCopy, FiCheck } from "react-icons/fi";
+import { SiWhatsapp } from "react-icons/si";
 import { useForm, ValidationError } from "@formspree/react";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Contact() {
   const [state, handleSubmit] = useForm("mgodqybe");
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText("zihad.pilot18@gmail.com");
+    setCopied(true);
+    toast.success("Email copied to clipboard!", { icon: "📋" });
+    setTimeout(() => setCopied(false), 2500);
+  };
 
   useEffect(() => {
     if (state.succeeded) {
@@ -78,13 +89,63 @@ export default function Contact() {
           </div>
 
           <div className="space-y-6">
-            <a href="mailto:zihad.pilot18@gmail.com" className="flex items-center gap-6 group cursor-pointer">
+            {/* Email */}
+            <div className="flex items-center justify-between gap-4 glass-card p-4 rounded-2xl border border-[var(--border-active)] hover:border-blue-400/50 transition-all duration-500">
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=zihad.pilot18@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-5 group cursor-pointer flex-grow"
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-xl text-blue-400 group-hover:scale-110 group-hover:bg-blue-500 group-hover:text-white transition-all duration-500">
+                  <FiMail />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-0.5">
+                    <p className="font-mono text-[12px] uppercase tracking-widest text-[var(--text-primary)] font-bold">Email Address</p>
+                    <span className="text-[8px] font-mono uppercase tracking-wider text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full">Open Gmail</span>
+                  </div>
+                  <p className="font-mono text-sm md:text-base text-[var(--text-primary)] opacity-90 group-hover:text-blue-400 transition-colors">
+                    zihad.pilot18@gmail.com
+                  </p>
+                </div>
+              </a>
+
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                title="Copy email to clipboard"
+                className="p-3 rounded-xl border border-[var(--border)] bg-[var(--surface-raised)] text-[var(--text-muted)] hover:text-white hover:border-blue-500 hover:bg-blue-500/10 transition-all duration-300 flex items-center gap-1.5 cursor-pointer text-xs font-mono"
+              >
+                {copied ? <FiCheck className="text-emerald-400 text-base" /> : <FiCopy className="text-base" />}
+                <span className="hidden sm:inline text-[10px] uppercase tracking-wider font-bold">
+                  {copied ? "Copied" : "Copy"}
+                </span>
+              </button>
+            </div>
+
+            {/* Phone */}
+            <a href="tel:+8801865662482" className="flex items-center gap-6 group cursor-pointer">
               <div className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center text-xl group-hover:text-blue-400 group-hover:border-blue-400/50 transition-all duration-500 text-[var(--text-primary)] border border-[var(--border-active)]">
-                <FiMail />
+                <FiPhone />
               </div>
               <div>
-                <p className="font-mono text-[14px] uppercase tracking-widest text-[var(--text-primary)] font-bold mb-1">Email Address</p>
-                <p className="font-mono text-lg text-[var(--text-primary)] opacity-90 group-hover:text-blue-400 transition-colors">zihad.pilot18@gmail.com</p>
+                <p className="font-mono text-[14px] uppercase tracking-widest text-[var(--text-primary)] font-bold mb-1">Phone Number</p>
+                <p className="font-mono text-base md:text-lg text-[var(--text-primary)] opacity-90 group-hover:text-blue-400 transition-colors">+880 1865 662482</p>
+              </div>
+            </a>
+
+            {/* WhatsApp */}
+            <a href="https://wa.me/8801865662482" target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
+              <div className="w-14 h-14 rounded-2xl glass-card flex items-center justify-center text-xl text-emerald-400 group-hover:text-emerald-300 group-hover:border-emerald-400/50 transition-all duration-500 border border-[var(--border-active)]">
+                <SiWhatsapp />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <p className="font-mono text-[14px] uppercase tracking-widest text-[var(--text-primary)] font-bold">WhatsApp</p>
+                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full">Chat Now</span>
+                </div>
+                <p className="font-mono text-base md:text-lg text-[var(--text-primary)] opacity-90 group-hover:text-emerald-400 transition-colors">+880 1865 662482</p>
               </div>
             </a>
           </div>

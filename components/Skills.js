@@ -5,16 +5,21 @@ import {
   SiTailwindcss,
   SiJavascript,
   SiReact,
+  SiReactquery,
   SiNextdotjs,
+  SiShadcnui,
   SiNodedotjs,
   SiExpress,
   SiMongodb,
+  SiMongoose,
+  SiPostgresql,
+  SiPrisma,
+  SiRedis,
+  SiZod,
+  SiJsonwebtokens,
   SiTypescript,
   SiGit,
   SiGithub,
-  SiPostgresql,
-  SiJsonwebtokens,
-  SiPrisma,
 } from "react-icons/si";
 import {
   FaPenNib,
@@ -45,6 +50,10 @@ const skillCategories = [
       },
       { name: "React", icon: <SiReact className="text-[#61DAFB]" /> },
       {
+        name: "TanStack Query",
+        icon: <SiReactquery className="text-[#FF4154]" />,
+      },
+      {
         name: "Next.js",
         icon: <SiNextdotjs className="text-[var(--text-primary)]" />,
       },
@@ -58,6 +67,10 @@ const skillCategories = [
           />
         ),
       },
+      {
+        name: "shadcn/ui",
+        icon: <SiShadcnui className="text-[var(--text-primary)]" />,
+      },
     ],
   },
   {
@@ -69,8 +82,11 @@ const skillCategories = [
         icon: <SiExpress className="text-[var(--text-primary)]" />,
       },
       { name: "MongoDB", icon: <SiMongodb className="text-[#47A248]" /> },
+      { name: "Mongoose", icon: <SiMongoose className="text-[#880000]" /> },
       { name: "PostgreSQL", icon: <SiPostgresql className="text-[#336791]" /> },
       { name: "Prisma", icon: <SiPrisma className="text-[var(--text-primary)]" /> },
+      { name: "Redis", icon: <SiRedis className="text-[#DC382D]" /> },
+      { name: "Zod", icon: <SiZod className="text-[#3E67B1]" /> },
       { name: "JWT", icon: <SiJsonwebtokens className="text-[#d63aff]" /> },
       {
         name: "Better Auth",
@@ -92,7 +108,6 @@ const skillCategories = [
         name: "GitHub",
         icon: <SiGithub className="text-[var(--text-primary)]" />,
       },
-      { name: "Figma", icon: <FaPenNib className="text-pink-500" /> },
       {
         name: "VS Code",
         icon: (
@@ -133,16 +148,6 @@ const skillCategories = [
           />
         ),
       },
-      {
-        name: "Google Stitch",
-        icon: (
-          <img
-            src="https://thumbs.dreamstime.com/b/google-logo-vector-format-white-background-illustration-407571048.jpg"
-            className="w-10 h-10 object-contain rounded-lg"
-            alt="Google Stitch"
-          />
-        ),
-      },
     ],
   },
 ];
@@ -157,7 +162,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="section-label mb-4"
         >
-          — 02 SKILLS —
+          — 03 SKILLS —
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

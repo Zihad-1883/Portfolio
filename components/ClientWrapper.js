@@ -5,28 +5,28 @@ import { AnimatePresence, motion } from "framer-motion";
 import SpaceCatLoader from "./SpaceCatLoader";
 
 export default function ClientWrapper({ children }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    if (typeof window !== "undefined") {
+      return !sessionStorage.getItem("portfolio_has_loaded");
+    }
+    return false;
+  });
 
   useEffect(() => {
+    // If not loading, session already loaded previously
+    if (!isLoading) return;
 
-    const handleLoad = () => {
-      // Exactly 1.5s display + 0.5s transition = 2.0s total duration
-      setTimeout(() => setIsLoading(false), 1500);
-    };
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      try {
+        sessionStorage.setItem("portfolio_has_loaded", "true");
+      } catch {
+        // Ignore private browsing storage errors
+      }
+    }, 2000);
 
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-      // Fallback timer
-      const fallback = setTimeout(handleLoad, 3000);
-      
-      return () => {
-        window.removeEventListener("load", handleLoad);
-        clearTimeout(fallback);
-      };
-    }
-  }, []);
+    return () => clearTimeout(timer);
+  }, [isLoading]);
 
   return (
     <>

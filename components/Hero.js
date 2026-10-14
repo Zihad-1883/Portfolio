@@ -59,8 +59,8 @@ export default function Hero() {
 
   const handleResumeDownload = () => {
     const link = document.createElement("a");
-    link.href = "/RESUME.pdf";
-    link.download = "Mizbaur_Rahman_Zihad_Resume.pdf";
+    link.href = "/Mizbaur_Rahman_Zihad_Full_Stack_Developer_Resume.pdf";
+    link.download = "Mizbaur_Rahman_Zihad_Full_Stack_Developer_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -184,7 +184,7 @@ export default function Hero() {
               onClick={handleResumeDownload}
               className="px-8 py-4 bg-[var(--text-primary)] text-[var(--bg)] rounded-2xl font-syne font-bold uppercase tracking-widest text-xs hover:translate-y-[-4px] hover:shadow-[0_10px_25px_rgba(255,255,255,0.15)] dark:hover:shadow-[0_10px_25px_rgba(255,255,255,0.05)] active:scale-95 transition-all duration-300 shadow-2xl flex items-center gap-3 cursor-pointer"
             >
-              Download CV <FiDownload className="text-sm" />
+              Download Resume <FiDownload className="text-sm" />
             </button>
 
             <button

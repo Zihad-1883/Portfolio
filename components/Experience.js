@@ -1,13 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  FiCpu, 
-  FiTerminal, 
-  FiAward, 
-  FiX, 
+import {
+  FiCpu,
+  FiTerminal,
+  FiAward,
+  FiX,
   FiFileText,
-  FiMail
+  FiExternalLink,
+  FiDownload
 } from "react-icons/fi";
 
 const experiences = [
@@ -16,34 +17,41 @@ const experiences = [
     role: "Back-End AI Engineering Intern",
     company: "FlyRank AI",
     period: "July 2026 - Sept 2026",
-    badge: "Approved Internship",
+    badge: "Completed & Verified",
     icon: <FiCpu className="text-blue-400 text-3xl" />,
-    summary: "Accepted into the FlyRank AI Internship program to build robust backend pipelines and integrate AI workflows into cloud applications.",
+    summary: "Completed rigorous 12-week Backend AI Engineering internship building multimodal AI retrieval pipelines, vector similarity guardrails, and asynchronous LLM background workers.",
     details: [
-      "Architect backend API routes using Express & Node.js to stream LLM responses and manage asynchronous tasks.",
-      "Integrate vector search workflows and AI prompt chains using PostgreSQL, TypeScript, and cloud services.",
-      "Collaborate in a remote-first engineering workflow, adhering to strict API contract testing and schema validation standards."
+      "Architected enterprise-grade multimodal AI engine (FlyRank Capstone) pairing stock images with blog content via 768-dim vector embeddings and PostgreSQL pgvector.",
+      "Engineered deterministic 3-tier Mismatch Guard filtering false positive recommendations with 100% Top-1 benchmark precision.",
+      "Awarded Official Certificate of Completion (FR-D11-77765-F98B0) and formal Executive Recommendation Letter from CEO Alen Malkoc."
     ],
-    hasLetter: true,
-    verification: "verify@internship.flyrank.ai",
-    letterText: {
-      title: "Internship Confirmation",
-      ref: "Re: Internship Confirmation - Mizbaur Rahman Zihad, July 2026",
-      to: "To whom it may concern,",
-      body: "This letter confirms that Mizbaur Rahman Zihad (mrzihadyt19@gmail.com) has been accepted into the FlyRank AI Internship program as a Back-End AI Engineering Intern for July 2026.",
-      fields: [
-        { label: "Intern Name", value: "Mizbaur Rahman Zihad" },
-        { label: "Role / Title", value: "Back-End AI Engineering Intern" },
-        { label: "Program", value: "July 2026 - Backend AI Engineering" },
-        { label: "Start Date", value: "July 1, 2026" },
-        { label: "End Date", value: "September 23, 2026" },
-        { label: "Duration", value: "12 Weeks" },
-        { label: "Status", value: "Approved" }
-      ],
-      notice: "Participation confirms acceptance into the internship program and does not create employment, contractor status, wages, benefits, or a job guarantee.",
-      signer: "Alen Malkoc, Founder, CEO",
-      company: "FlyRank Corp."
-    }
+    driveFolder: "https://drive.google.com/drive/folders/19ExW-xXiJSlhzQZvFkeamv6YKwy03Ajd",
+    documents: [
+      {
+        id: "flyrank-cert",
+        title: "Certificate of Completion",
+        subtitle: "Backend AI Engineering (ID: FR-D11-77765-F98B0)",
+        file: "/flyrank-completion-certificate.pdf",
+      },
+      {
+        id: "flyrank-rec",
+        title: "Recommendation Letter",
+        subtitle: "Executive Recommendation by Alen Malkoc, CEO",
+        file: "/flyrank-recommendation-letter.pdf",
+      },
+      {
+        id: "flyrank-eval",
+        title: "Final Evaluation & Report",
+        subtitle: "Technical Competency & Internship Performance Evaluation",
+        file: "/flyrank-evaluation-report.pdf",
+      },
+      {
+        id: "flyrank-confirm",
+        title: "Internship Acceptance",
+        subtitle: "Initial Program Confirmation Letter",
+        file: "/flyrank-internship-confirmation.pdf",
+      },
+    ],
   },
   {
     id: 2,
@@ -52,34 +60,49 @@ const experiences = [
     period: "April 2026 - Present",
     badge: "In Progress",
     icon: <FiTerminal className="text-emerald-400 text-3xl" />,
-    summary: "Intense engineering track mastering PostgreSQL, Express, Next.js, and Node.js combined with modern AI workflows.",
+    summary: "Intense software engineering track mastering PostgreSQL, Express, Next.js, TypeScript, and modern AI workflows with microservices and system design.",
     details: [
       "Engineered full-stack applications with Next.js App Router, Express, and PostgreSQL, reducing query latency via Prisma connection pooling.",
       "Implemented Retrieval-Augmented Generation (RAG) pipelines using vector embeddings to enable semantic document search.",
       "Containerized microservices using Docker and deployed cloud applications with Docker Compose and production environment configurations."
-    ]
+    ],
   },
   {
     id: 3,
-    role: "Complete Web Development Course",
+    role: "Complete Web Development Course With Excellence",
     company: "Programming Hero",
     period: "Dec 2025 - June 2026",
-    badge: "Completed",
+    badge: "Completed With Excellence",
     icon: <FiAward className="text-amber-400 text-3xl" />,
-    summary: "Rigorous full-stack training covering database design, secure RESTful APIs, and modern frontend application development.",
+    summary: "Rigorous full-stack software training covering database design, secure RESTful APIs, and modern frontend application development. Earned Certificate of Completion with Excellence and BlackBelt Web Developer recognition.",
     details: [
       "Developed 10+ full-stack web applications using Node.js, Express, MongoDB, and React with responsive UI frameworks.",
       "Implemented JWT and Better Auth authentication systems with role-based access control (RBAC) to secure user data across client-server boundaries.",
-      "Integrated third-party services including payment gateways (SSLCommerz) and image hosting APIs (Cloudinary) to power real-world transactional apps."
-    ]
+      "Awarded prestigious BlackBelt Web Developer badge for outstanding academic standing and project delivery in Batch-13."
+    ],
+    driveFolder: "https://drive.google.com/drive/folders/1Nb5tcWjVaQQqtNUvZw464s4ouoc3Uteg",
+    documents: [
+      {
+        id: "ph-cert",
+        title: "Certificate of Completion with Excellence",
+        subtitle: "Batch-13 (ID: L2B7-1126) — Programming Hero",
+        file: "/certificate_student.pdf",
+      },
+      {
+        id: "ph-blackbelt",
+        title: "BlackBelt Developer Recognition",
+        subtitle: "Job Placement & Outstanding Achievement Award",
+        file: "/BlackBelt.pdf",
+      },
+    ],
   }
 ];
 
 export default function Experience() {
-  const [selectedLetter, setSelectedLetter] = useState(null);
+  const [selectedDoc, setSelectedDoc] = useState(null);
 
   useEffect(() => {
-    if (selectedLetter) {
+    if (selectedDoc) {
       document.body.style.overflow = "hidden";
       window.__lenis?.stop();
     } else {
@@ -91,7 +114,7 @@ export default function Experience() {
       document.body.style.overflow = "";
       window.__lenis?.start();
     };
-  }, [selectedLetter]);
+  }, [selectedDoc]);
 
   return (
     <section id="experience" className="py-32 px-6 max-w-7xl mx-auto">
@@ -102,7 +125,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="section-label mb-4"
         >
-          — 04 EXPERIENCE —
+          — 04 EXPERIENCE & CERTIFICATIONS —
         </motion.span>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -113,6 +136,9 @@ export default function Experience() {
         >
           Professional Training & Work
         </motion.h2>
+        <p className="font-mono text-xs md:text-sm text-[var(--text-muted)] mt-4 max-w-2xl text-center leading-relaxed">
+          Verified industry experience, internship credentials, and certified technical training with official certificates and reference documents.
+        </p>
       </div>
 
       <div className="relative border-l-2 border-[var(--border)] pl-6 md:pl-12 ml-4 md:ml-8 max-w-4xl mx-auto space-y-16">
@@ -135,7 +161,7 @@ export default function Experience() {
             <div className="glass-card p-8 md:p-10 rounded-[2.5rem] relative group border-[var(--border)] hover:border-blue-500/30 transition-all duration-500">
               {/* Highlight accent line */}
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-blue-500 rounded-l-[2.5rem] transition-all duration-500" />
-              
+
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                 <div>
                   <span className="text-[10px] font-mono tracking-[0.2em] uppercase font-bold text-blue-400">
@@ -145,7 +171,7 @@ export default function Experience() {
                     {exp.role}
                   </h3>
                 </div>
-                
+
                 <div className="flex flex-row md:flex-col items-start gap-2 text-right md:-mt-2">
                   <span className="text-[11px] font-mono font-bold tracking-widest text-[var(--text-muted)] bg-[var(--surface-raised)] border border-[var(--border)] px-4 py-1.5 rounded-full inline-block">
                     {exp.period}
@@ -160,7 +186,7 @@ export default function Experience() {
                 {exp.summary}
               </p>
 
-              <ul className="space-y-3 font-mono text-[13px] text-[var(--text-primary)] opacity-90 pl-1 mb-6">
+              <ul className="space-y-3 font-mono text-[13px] text-[var(--text-primary)] opacity-90 pl-1 mb-8">
                 {exp.details.map((detail, dIdx) => (
                   <li key={dIdx} className="flex gap-3 items-start">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
@@ -169,36 +195,59 @@ export default function Experience() {
                 ))}
               </ul>
 
-              {exp.hasLetter && (
-                <button
-                  onClick={() => setSelectedLetter(exp.letterText)}
-                  className="flex items-center gap-2 font-syne font-bold text-[9px] uppercase tracking-widest bg-blue-500 text-white px-6 py-3.5 rounded-xl hover:bg-blue-600 transition-all duration-300 shadow-xl cursor-pointer"
-                >
-                  <FiFileText /> View Internship Letter
-                </button>
+              {/* Verified Documents & Google Drive Action Links */}
+              {exp.documents && exp.documents.length > 0 && (
+                <div className="pt-6 border-t border-[var(--border)] flex flex-col gap-4">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-blue-400 font-bold">
+                    Official Credentials & Documentation
+                  </span>
+
+                  <div className="flex flex-wrap gap-2.5">
+                    {exp.documents.map((doc) => (
+                      <button
+                        key={doc.id}
+                        onClick={() => setSelectedDoc(doc)}
+                        className="flex items-center gap-2 font-syne font-bold text-[10px] uppercase tracking-wider bg-blue-500/10 hover:bg-blue-500 text-blue-400 hover:text-white border border-blue-500/30 px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm cursor-pointer"
+                      >
+                        <FiFileText /> {doc.title}
+                      </button>
+                    ))}
+
+                    {exp.driveFolder && (
+                      <a
+                        href={exp.driveFolder}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 font-syne font-bold text-[10px] uppercase tracking-wider bg-[var(--surface-raised)] hover:bg-[var(--text-primary)] text-[var(--text-muted)] hover:text-[var(--bg)] border border-[var(--border-active)] px-4 py-2.5 rounded-xl transition-all duration-300 shadow-sm cursor-pointer"
+                      >
+                        <FiExternalLink /> Google Drive Folder
+                      </a>
+                    )}
+                  </div>
+                </div>
               )}
             </div>
           </motion.div>
         ))}
       </div>
 
-      {/* Internship Letter Modal */}
+      {/* PDF & Document Modal */}
       <AnimatePresence>
-        {selectedLetter && (
+        {selectedDoc && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             data-lenis-prevent="true"
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-2xl bg-[var(--bg)]/85"
-            onClick={() => setSelectedLetter(null)}
+            onClick={() => setSelectedDoc(null)}
           >
             <motion.div
               initial={{ scale: 0.9, y: 30, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 30, opacity: 0 }}
               data-lenis-prevent="true"
-              className="glass-card w-full max-w-4xl h-[85vh] rounded-[2.5rem] p-6 relative shadow-[0_0_100px_rgba(59,130,246,0.15)] border border-[var(--border-active)] flex flex-col"
+              className="glass-card w-full max-w-4xl h-[88vh] rounded-[2.5rem] p-6 relative shadow-[0_0_100px_rgba(59,130,246,0.15)] border border-[var(--border-active)] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
@@ -209,38 +258,38 @@ export default function Experience() {
                   </div>
                   <div>
                     <h2 className="text-lg md:text-xl font-syne font-bold text-[var(--text-primary)]">
-                      {selectedLetter.title}
+                      {selectedDoc.title}
                     </h2>
                     <p className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-muted)]">
-                      Official Confirmation Document
+                      {selectedDoc.subtitle || "Official Verified Document"}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3 pr-12">
                   <a
-                    href="/flyrank-internship-confirmation.pdf"
+                    href={selectedDoc.file}
                     download
                     className="flex items-center gap-2 font-syne font-bold text-[9px] uppercase tracking-widest bg-blue-500 hover:bg-blue-600 active:scale-95 text-white px-4 py-2.5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/20"
                   >
-                    Download PDF
+                    <FiDownload /> Download
                   </a>
                 </div>
               </div>
 
               <button
-                onClick={() => setSelectedLetter(null)}
+                onClick={() => setSelectedDoc(null)}
                 className="absolute top-6 right-6 w-10 h-10 rounded-full glass-card flex items-center justify-center text-lg hover:bg-[var(--text-primary)] hover:text-[var(--bg)] transition-all duration-300 text-[var(--text-primary)] cursor-pointer z-50"
               >
                 <FiX />
               </button>
 
-              {/* PDF Embed Area */}
+              {/* PDF Embed / Preview */}
               <div className="flex-1 w-full rounded-2xl overflow-hidden border border-[var(--border)] bg-black/40 relative">
                 <iframe
-                  src="/flyrank-internship-confirmation.pdf#toolbar=1"
+                  src={`${selectedDoc.file}#toolbar=1`}
                   className="w-full h-full border-0 absolute inset-0"
-                  title="Internship Confirmation PDF"
+                  title={selectedDoc.title}
                 />
               </div>
             </motion.div>
